@@ -80,6 +80,7 @@
 }
 .counter .number, .timer .time {
   font-size: 1.2em;
+  white-space: nowrap;
 }
 .counter .number::before, .timer .time::before {
   display: inline-block;
