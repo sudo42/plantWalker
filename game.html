@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>don't step on the flowers</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- <script type="module" src="./code.js"></script> --><!-- modules won't work with file://, because of CORS -->
+    <script src="./code.js"></script>
+  </head>
+  <body>
+    <section class="newGameBar">
+        <div class="settings">
+          <div class="property">
+            <label class="label">size</label>
+            <div class="inputWrap">
+              <input id="inSizeX" type="number" min=1 max=999 title="width" placeholder="width" />
+              <span class="inBetween"> × </span>
+              <input id="inSizeY" type="number" min=1 max=999 title="height" placeholder="height" />
+              <span class="inBetween aside"> = </span>
+              <span id="compCellCount" class="aside">?</span>
+            </div>
+          </div>
+          <div class="property">
+            <label class="label" for="inFlowerCount">#🌺</label>
+            <div class="inputWrap">
+              <input id="inFlowerCount" type="number" min=0 max=999999 title="number of flowers" placeholder="flowers" />
+            </div>
+          </div>
+        </div>
+        <button id="genNewGame">generate</button>
+    </section>
+    <hr class="mainDivider"/>
+    <section id="gameSection">
+      <main class="theGame">
+        <div class="topBar">
+          <div class="counter flowers">
+            <span class="label">flowers</span>
+            <span class="number">042</span>
+          </div>
+          <div class="counter flags">
+            <span class="label">flags</span>
+            <span class="number">021</span>
+          </div>
+          <div class="counter explored">
+            <span class="label">explored</span>
+            <span class="number">002</span>
+          </div>
+          <div class="counter clicks">
+            <span class="label">clicks</span>
+            <span class="number">000</span>
+          </div>
+          <div class="timer playTime">
+            <span class="label">time used</span>
+            <time class="time" datetime="PT13M37S">13:37</time>
+          </div>
+        </div>
+        <div class="fieldScrollWrap">
+          <div class="fieldWrap"><!--
+            <div class="field" data-size-x="3" data-size-y="3" style="--size-x:3; --size-y:3;">
+              <div class="cell" data-x="1" data-y="1" style="--x:1; --y:1;">a</div>
+              <div class="cell" data-x="1" data-y="2" style="--x:1; --y:2;">a</div>
+              <div class="cell" data-x="2" data-y="1" style="--x:2; --y:1;">a</div>
+              <div class="cell" data-x="2" data-y="2" style="--x:2; --y:2;">a</div>
+            </div>-->
+          </div>
+        </div>
+      </main>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+}
+
+.newGameBar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.newGameBar > * {
+  margin: 0.42em 2.1em;
+}
+.newGameBar .settings {
+  display: table;
+}
+.newGameBar .settings > * {
+  display: table-row;
+}
+.newGameBar .settings > * > * {
+  display: table-cell;
+  padding: 0.21em 0.42em;
+}
+.settings .aside {
+  opacity: 0.7;
+}
+.settings input[type=number] {
+  width: 6em;
+}
+#compCellCount {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  min-width: 4ch;
+}
+#genNewGame {
+  min-width: 17ch;
+}
+#genNewGame.errors {
+  box-shadow: 0 0 0.5em #f00;
+}
+
+.mainDivider, #gameSection {
+  display: none;
+}
+.mainDivider {
+  margin: 0 auto 2.1em auto;
+}
+.gameVisible .mainDivider, .gameVisible #gameSection {
+  display: block;
+}
+
+.topBar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.counter, .timer {
+  width: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 0 1em;
+  padding: 0.42em;
+  box-shadow: inset 0 0 0.42em rgba(127, 127, 127, 0.5);
+  border-radius: 0.21em;
+  font-variant-numeric: tabular-nums;
+}
+.counter > *, .timer > * {
+  margin: 0.1em 0.21em;
+}
+.counter .label, .timer .label {
+  font-size: 0.7em;
+}
+.counter .number, .timer .time {
+  font-size: 1.2em;
+}
+.counter .number::before, .timer .time::before {
+  display: inline-block;
+  margin-right: 0.42em;
+}
+.counter.flowers .number::before {
+  content: '🌸';
+  content: '💐';
+}
+.counter.flags .number::before {
+  content: '🏳️‍🌈';
+  content: '🚩';
+}
+.counter.explored .number::before {
+  content: '🗺';
+}
+.counter.clicks .number::before {
+  content: '🐁';
+}
+.timer.countdown .time::before {
+  content: '⏰';
+}
+.timer.playTime .time::before {
+  content: '⏱';
+}
+
+.fieldScrollWrap {
+  width: max-content;
+  max-width: 100%;
+  margin: 0.42em auto;
+  overflow-x: auto;
+  position: relative;
+}
+.fieldWrap {
+  width: max-content;
+  max-width: unset;
+  margin: 0 auto;
+  padding: 1.34em;
+  overflow: hidden;
+}
+.fieldWrap .endMsg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 314;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.666);
+  background: radial-gradient(circle at center, rgba(0,0,0,.777) 0%, rgba(0,0,0,.666) 21%, rgba(0,0,0,0) 42%, transparent);
+  pointer-events: none;
+}
+.endMsgText {
+  width: max-content;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  text-shadow:
+    0 0 0.1em #000,
+    0 0 0.42em currentColor;
+}
+.win .endMsgText {
+  color: #3c3;
+}
+.gameOver .endMsgText {
+  color: #e93;
+}
+.field {
+  display: grid;
+  width: max-content;
+  height: max-content;
+  grid-template-columns: repeat(var(--size-x), 2.1em);
+  grid-template-rows: repeat(var(--size-y), 2.1em);
+  border: solid #666;
+  border-width: 1px 0 0 1px;
+}
+.field > .cell {
+  grid-row: var(--y);
+  grid-column: var(--x);
+  border: inherit;
+  border: 0 none;
+  border: inherit;
+  border-width: 0 1px 1px 0;
+}
+.cell {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.cell .cellContent {
+  position: relative;
+  z-index: 7;
+}
+.cell .cellButton {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  border: 0.1em solid #2c2;
+  border-radius: 0;
+  background: #0c0;
+  transition: background 0.21s ease ;
+  background-image: radial-gradient(circle at center, #090, #0c0 42%, #0c0);
+  cursor: pointer;
+  z-index: 21;
+}
+.cell .cellButton:hover,
+.cell .cellButton:focus {
+  background: #7c7;
+  background-image: radial-gradient(circle at center, #7f7, #0c0 66.6%, #0c0);
+}
+.cell .cellButton:focus {
+  border: 0.21em solid #040;
+  outline: 0 none;
+}
+
+.field.ended .cell {
+  background: #da5;
+  color: #222;
+}
+.field .cell.explored {
+  background: #fc6;
+  color: #444;
+}
+.cell.explored.adj1 { color: #070; }
+.cell.explored.adj2 { color: #066; }
+.cell.explored.adj3 { color: #007; }
+.cell.explored.adj4 { color: #407; }
+.cell.explored.adj5 { color: #704; }
+.cell.explored.adj6 { color: #700; }
+.cell.explored.adj7 { color: #900; }
+.cell.explored.adj8 { color: #c00; }
+.cell.explored .cellButton,
+.field.ended .cellButton {
+  display: none;
+}
+.cell.flag .cellContent {
+  pointer-events: none;
+  z-index: 42;
+}
+.cell.flag .cellContent::after {
+  content: '🚩';
+}
+.field .cell.flower {
+  background: #7f7;
+}
+.field .cell.flower.steppedOn {
+  background: #600;
+}
+.cell.flower .cellContent::before {
+  content: '🌺';
+}
+
