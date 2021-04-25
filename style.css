@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+.aboutDivider {
+  margin: 2.1em auto;
+}
+.about {
+  font-size: 0.9em;
+}
+
 .newGameBar {
   display: flex;
   flex-flow: row wrap;
@@ -119,6 +126,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+  min-width: min-content;
+  min-height: min-content;
   z-index: 314;
   display: flex;
   justify-content: center;

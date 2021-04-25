@@ -108,12 +108,14 @@ function init() {
 
     let startTime = null
     let timer = null
+    let ended = false
 
     const _stop = (showAll=false) => {
       if (timer !== null) {
         clearInterval(timer)
         timer = null
       }
+      ended = true
       field.control.endNow(showAll)
     }
 
@@ -125,12 +127,16 @@ function init() {
       return endMsgWrap
     }
     const _gameOver = () => {
+      if (ended) return false
+      ended = true
       console.debug('oh no ... this is the end ):')
       _stop(true)
       EL.gameFieldWrap.appendChild(_genEndMsg(false))
       //TODO: do sth fancy
     }
     const _playerWins = () => {
+      if (ended) return false
+      ended = true
       console.debug('you won! hooray! \\o/')
       _stop(true)
       EL.gameFieldWrap.appendChild(_genEndMsg(true))

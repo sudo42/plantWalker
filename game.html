@@ -55,16 +55,96 @@
           </div>
         </div>
         <div class="fieldScrollWrap">
-          <div class="fieldWrap"><!--
-            <div class="field" data-size-x="3" data-size-y="3" style="--size-x:3; --size-y:3;">
-              <div class="cell" data-x="1" data-y="1" style="--x:1; --y:1;">a</div>
-              <div class="cell" data-x="1" data-y="2" style="--x:1; --y:2;">a</div>
-              <div class="cell" data-x="2" data-y="1" style="--x:2; --y:1;">a</div>
-              <div class="cell" data-x="2" data-y="2" style="--x:2; --y:2;">a</div>
-            </div>-->
-          </div>
+          <div class="fieldWrap"></div>
         </div>
       </main>
     </section>
+    <hr class="aboutDivider"/>
+    <aside class="about">
+      <h2>about this software</h2>
+      <section>
+        <h3>what is it?</h3>
+        <p>
+          I call this software <i>"don't walk on the plants"</i>.
+          It is based on the concept of minesweeper, but uses plants instead of bombs, because plants are much prettier and way more peaceful.
+        </p>
+      </section>
+      <section>
+        <h3>how to use it?</h3>
+        <p>
+          You see the little input boxes at the top of the page?
+          The first pair is to specify the width and height of the grid.
+          The one below them is for the number of flowers to place on that grid.
+          <br/>
+          Once you have entered some values (or just leave the defaults in there) click the <em>"generate"</em> button.
+          A grid should appear.
+        </p><p>
+          Use single (primary) click on one of the cells, to explore it.
+          With your first click, all flowers will be placed.
+          Using a secondary click (the other mouse button, and usually long-pressing on touch screens),
+          or pressing at least one of <kbd>shift</kbd>, <kbd>ctrl</kbd>, <kbd>alt</kbd> while clicking,
+          will toggle a flag on any unexplored cell.
+          Flags prevent accidentally exploring a cell, and are usually used to mark where you belive flowers are located.
+        </p><p>
+          Some details:
+          The time will start with your first click, and stop when you stepped on a flower or successfully explored all
+          all ground withot flowers.
+          <br/>
+          Minimum value for width and height is <em>1</em>, although I would recommend using at least <em>12 x 6</em>.
+          (The visuals might get funny for to low values.
+          In additon: you probably want to stay below <em>90</em> or so, as too high values might have a severe performance impact, and a huge grid is probably annoying to play on. )
+          You can have <em>0</em> flowers, sure, but not less, and at most as many as cells on the grid.
+          (Although I would advise against too extreme numbers.)
+          <br/>
+          The <i>"generate"</i> button should get a red shadow and be disabled when impossible values are entered.
+          (At least for the most obvious logic problems, negative numbers, etc. … regarding overflows, prcision limits, and similar, please consider my advise against too high values.)
+        </p>
+      </section>
+      <section>
+        <h3>requirements and technical stuff?</h3>
+        <p>
+          This little "game" runs entirely in your browser;
+          You can even download the files and play it offline from your mass storage device.
+        </p><p>
+          There are no external libraries, artwork, scripts, … or any reason to perform additional requests for anything which are not the project files.
+          At the moment, i use emoji instead of images, so you probably need a somewhat decent emoji font installed and enabled (dont't worry, this should be the case for most devices nowadays).
+        </p><p>
+          Your browser defaults are used for the font, and "basic" text colours.
+          (As the game itself has some coloured elements it wasn't easily possible to retain default colours there.)
+          This has to advantages:
+          It is possible that you used some non-standard font and font-size for some reasons (personal preference, dealing with dyslexia, too tiny text by default, …), and in that case:
+          Why should I code against your wished for no good reason?
+          The second advantage: I didn't have to think about it that much.
+          <br/>
+          The above also implies: Should you desire a "dark mode" for this page (at least the outer parts), just change your browser defaults.
+        </p><p>
+          For your browser … use a recent version of something good, and enable JavaScript.
+          (No years old ESR versions, no iexplore.exe, ... probably not Egde or Safari, but you might be lucky.)
+          I personally only tested it in recent (beta and developer) versions of Firefox for Linux and Android.
+          (On that note: this application is in no way optimised for mobile devices ... so don't expect any decent user experience.)
+        </p>
+      </section>
+      <section>
+        <h3>source and license?</h3>
+        <p>
+          This software is <i>free and libre open source software</i>,
+          licensed under the <a href="./LICENSE.txt">EUPL (European Union Public License) v1.2</a>.
+          (An HTML version and translations are available <a href="https://eupl.eu/1.2/en/">online</a>.)
+          The source code is available as <a href="https://github.com/sudo42/plantWalker">git repository</a>.
+          (Well … the "source code" is everything you see here.
+          Your browser could probably download this entire page and you would have a mostly complete copy of "the original code".)
+      </section>
+      <section>
+        <h3>why?</h3>
+        <p>
+          <i>"Why this project?"</i>, you ask?
+          Quite simple:
+          I was, among many others, informed about a code challenge in the context of an upcoming events.
+          And the task was, to implement a browser-based minesweeper version.
+          To be honest, I don't care too much about the challenge itself, it was simply a good idea at the right time.
+          (I like coding web stuff, it promised to be fun, and such activities usually help the get other stuff out of my head.)
+        </p>
+      </section>
+    </aside>
   </body>
 </html>
